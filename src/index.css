@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --hdr-height: 80px;
+}
+
+@theme {
+  /* Primary colors */
+  --color-dark-blue: hsl(223, 26%, 24%);
+  --color-lime-green: hsl(136, 65%, 51%);
+  --color-bright-cyan: hsl(192, 70%, 51%);
+
+  /* Neutral colors */
+  --color-gray-blue-dark: hsl(233, 8%, 62%);
+  --color-gray-blue-light: hsl(220, 16%, 96%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-light-gray: hsl(0, 0%, 98%);
+
+  /* Typography */
+  --font-family: "Public Sans", sans-serif;
+}
+
+@layer components {
+  .wrapper {
+    @apply grid grid-cols-[1fr_min(100%,_1440px)_1fr];
+  }
+
+  .full-bleed {
+    grid-column: -1 / 1;
+  }
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.nav-toggle {
+  @apply aspect-square w-6 flex items-center hover:cursor-pointer bg-no-repeat bg-center
+}
+.nav-toggle[data-state='closed'] {
+  background-image: url('assets/images/icon-hamburger.svg');
+}
+
+.nav-toggle[data-state='open'] {
+  background-image: url('assets/images/icon-close.svg');
+}
