@@ -95,7 +95,7 @@ export const Footer = () => {
             <SocialLinks />
           </div>
           <nav aria-label="Company Information">
-            <ul className="flex flex-col items-center space-y-2 lg:flex-row lg:gap-20">
+            <ul className="flex flex-col items-center space-y-2 lg:flex-row lg:gap-20 lg:space-y-0">
               <div className="space-y-2">
                 {companyLinks.slice(0, 3).map((link, index) => (
                   <li key={index}>
