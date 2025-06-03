@@ -17,7 +17,7 @@
   --color-light-gray: hsl(0, 0%, 98%);
 
   /* Typography */
-  --font-family: "Public Sans", sans-serif;
+  --font-sans: "Public Sans", sans-serif;
 }
 
 @layer components {
@@ -26,7 +26,7 @@
   }
 
   .full-bleed {
-    grid-column: -1 / 1;
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -43,4 +43,16 @@
 
 .nav-toggle[data-state='open'] {
   background-image: url('assets/images/icon-close.svg');
+}
+
+.hero-image-container {
+  background-image: url('assets/images/bg-intro-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -38vh;
+}
+
+.hero-image-container[data-mobile='false'] {
+  background-image: url('assets/images/bg-intro-desktop.svg');
+  background-position: 30vw center
 }

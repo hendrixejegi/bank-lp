@@ -1,5 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
+import { cn } from "../lib/utils";
+import { useIsMobile, useScrolled } from "../lib/hooks";
 
 import logo from "../assets/images/logo.svg";
 
@@ -12,56 +14,88 @@ const links = [
   ["Careers", "/careers"],
 ];
 
+export const InviteButton = ({ styles = "" }) => {
+  return (
+    <div
+      className={cn(
+        "from-lime-green to-bright-cyan duration:150 hidden w-full max-w-40 items-center justify-center overflow-hidden rounded-full bg-linear-to-r transition-transform hover:scale-105 lg:flex",
+        styles,
+      )}
+    >
+      <a
+        href="/request-invite"
+        className="relative inline-block border-4 border-transparent px-4 py-2 text-center font-semibold text-white focus:top-0 focus:left-0 focus:h-full focus:w-full focus:rounded-full focus:border-4 focus:before:absolute focus:before:content-['']"
+        role="button"
+      >
+        Request Invite
+      </a>
+    </div>
+  );
+};
+
 export const NavBar = () => {
+  const isMobile = useIsMobile();
+
   const [isToggled, setIsToggled] = useState(false);
 
   const toggleMenu = () => {
     setIsToggled(!isToggled);
   };
 
+  const isScrolled = useScrolled();
+
   return (
-    <header className="flex justify-between h-(--hdr-height) px-8 sticky z-50 items-center">
-      <div>
-        <img src={logo} alt="Easy Bank logo" />
-      </div>
-
-      <div className="fixed right-8 lg:hidden">
-        <button
-          className="nav-toggle nav-open"
-          data-state={isToggled ? "open" : "closed"}
-          onClick={toggleMenu}
-        ></button>
-      </div>
-
-      <nav className="h-full">
-        <div
-          className={clsx(
-            "bg-gray-blue-dark top-[var(--hdr-height)] h-full left-0 w-full p-8 lg:relative lg:p-0 lg:bg-transparent lg:inset-auto lg:block",
-            isToggled ? "fixed" : "hidden"
-          )}
-        >
-          <ul className="flex flex-col bg-white rounded-md p-4 lg:flex-row lg:p-0 lg:h-full gap-2">
-            {links.map((link, index) => (
-              <li key={index} className="w-full lg:h-full">
-                <a
-                  href={link[1]}
-                  className="relative h-full  text-dark-blue lg:text-gray-blue-dark/60 lg:hover:text-gray-blue-dark text-center w-full flex items-center justify-center p-2 font-semibold lg:after:absolute lg:after:left-0 lg:after:bottom-0 lg:after:content-[''] lg:after:w-full lg:after:h-1 lg:after:bg-linear-to-r lg:after:from-lime-green lg:after:to-bright-cyan lg:after:scale-x-0 lg:after-hidden lg:hover:after:block lg:hover:after:scale-x-100 lg:after:transition-transform lg:after:duration-300"
-                >
-                  <span>{link[0]}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+    <header
+      className={clsx(
+        "full-bleed sticky top-0 z-50 bg-white",
+        isScrolled ? "shadow-md" : "",
+      )}
+    >
+      <div className="mx-auto flex h-(--hdr-height) w-[min(100%,_1440px)] items-center justify-between px-4">
+        <div>
+          <img src={logo} alt="Easy Bank logo" />
         </div>
-      </nav>
-
-      <div className="hidden bg-linear-to-r from-lime-green to-bright-cyan rounded-full lg:flex lg:items-center overflow-hidden hover:scale-105 transition-transform duration:150">
-        <a
-          href="/request-invite"
-          className="text-white inline-block py-2 px-4 font-semibold"
-        >
-          Request Invite
-        </a>
+        <div className="fixed right-8 lg:hidden">
+          <button
+            className="nav-toggle nav-open"
+            data-state={isToggled ? "open" : "closed"}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isToggled}
+            aria-controls="primary-nav"
+          ></button>
+        </div>
+        <nav className="h-full">
+          <div
+            className={clsx(
+              "top-[var(--hdr-height)] left-0 h-full w-full p-8 lg:relative lg:inset-auto lg:block lg:bg-transparent lg:p-0",
+              isToggled
+                ? "from-dark-blue/70 fixed bg-linear-to-b to-white/0"
+                : "hidden",
+            )}
+          >
+            <ul
+              id="primary-nav"
+              data-state={isToggled ? "open" : "closed"}
+              aria-hidden={!isToggled && isMobile ? "true" : "false"}
+              role="menubar"
+              aria-label="Main navigation"
+              className="flex flex-col gap-2 rounded-md bg-white p-4 lg:h-full lg:flex-row lg:p-0"
+            >
+              {links.map((link, index) => (
+                <li key={index} className="w-full lg:h-full" role="menuitem">
+                  <a
+                    href={link[1]}
+                    className="text-dark-blue lg:text-gray-blue-dark lg:hover:text-dark-blue lg:after:from-lime-green lg:after:to-bright-cyan lg:after-hidden relative flex h-full w-full items-center justify-center p-2 text-center font-semibold lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:h-1 lg:after:w-full lg:after:scale-x-0 lg:after:bg-linear-to-r lg:after:transition-transform lg:after:duration-300 lg:after:content-[''] lg:hover:after:block lg:hover:after:scale-x-100"
+                  >
+                    <span>{link[0]}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+        <InviteButton />
       </div>
     </header>
   );
