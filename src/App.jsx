@@ -3,17 +3,19 @@ import {
   HeroSection,
   FeatureSection,
   ArticlesSection,
+  Footer,
 } from "./components";
 
 function App() {
   return (
-    <div className="wrapper">
+    <div>
       <NavBar />
-      <main className="full-bleed wrapper">
+      <main>
         <HeroSection />
         <FeatureSection />
         <ArticlesSection />
       </main>
+      <Footer />
     </div>
   );
 }
