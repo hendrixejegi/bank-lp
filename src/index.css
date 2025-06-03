@@ -20,18 +20,10 @@
   --font-sans: "Public Sans", sans-serif;
 }
 
-@layer components {
-  .wrapper {
-    @apply grid grid-cols-[1fr_min(100%,_1440px)_1fr];
-  }
-
-  .full-bleed {
-    grid-column: 1 / -1 !important;
-  }
-}
-
-.wrapper > * {
-  grid-column: 2;
+section > div,
+header > div,
+footer > div {
+  @apply max-w-[1440px] w-full mx-auto;
 }
 
 .nav-toggle {
@@ -49,7 +41,7 @@
   background-image: url('assets/images/bg-intro-mobile.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center -38vh;
+  background-position: center -44vh;
 }
 
 .hero-image-container[data-mobile='false'] {

@@ -53,8 +53,8 @@ console.log(Features);
 
 export const FeatureSection = () => {
   return (
-    <section className="full-bleed bg-gray-blue-light">
-      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 p-4 py-20 lg:items-start">
+    <section className="bg-gray-blue-light">
+      <div className="flex flex-col items-center gap-12 p-4 py-20 lg:items-start lg:py-30">
         <div className="space-y-4 text-center lg:max-w-xl lg:text-start">
           <h2 className="text-dark-blue text-4xl font-semibold">
             Why choose EasyBank?

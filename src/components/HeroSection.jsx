@@ -10,9 +10,9 @@ export function HeroSection() {
   return (
     <section
       data-mobile={isMobile}
-      className="full-bleed bg-light-gray hero-image-container"
+      className="bg-light-gray hero-image-container"
     >
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center justify-between pb-20 lg:flex-row-reverse lg:py-40">
+      <div className="flex-col items-center justify-between pb-20 lg:flex-row-reverse lg:py-40">
         <div className="overflow-hidden lg:absolute lg:top-0 lg:right-0 lg:translate-x-9/50">
           <img
             src={mockups}
@@ -21,7 +21,7 @@ export function HeroSection() {
           />
         </div>
         <div className="space-y-8 p-4 text-center lg:mr-auto lg:max-w-[430px] lg:text-start">
-          <h1 className="text-dark-blue text-5xl font-semibold">
+          <h1 className="text-dark-blue text-4xl font-semibold">
             Next generation digital banking
           </h1>
           <p className="text-dark text-gray-blue-dark">

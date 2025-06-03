@@ -47,11 +47,11 @@ export const NavBar = () => {
   return (
     <header
       className={clsx(
-        "full-bleed sticky top-0 z-50 bg-white",
+        "sticky top-0 z-50 bg-white",
         isScrolled ? "shadow-md" : "",
       )}
     >
-      <div className="mx-auto flex h-(--hdr-height) w-[min(100%,_1440px)] items-center justify-between px-4">
+      <div className="flex h-(--hdr-height) items-center justify-between px-4">
         <div>
           <img src={logo} alt="Easy Bank logo" />
         </div>
@@ -65,7 +65,7 @@ export const NavBar = () => {
             aria-controls="primary-nav"
           ></button>
         </div>
-        <nav className="h-full">
+        <nav className="h-full" aria-label="Main navigation">
           <div
             className={clsx(
               "top-[var(--hdr-height)] left-0 h-full w-full p-8 lg:relative lg:inset-auto lg:block lg:bg-transparent lg:p-0",
