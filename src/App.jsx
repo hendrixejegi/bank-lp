@@ -1,4 +1,9 @@
-import { NavBar, HeroSection } from "./components";
+import {
+  NavBar,
+  HeroSection,
+  FeatureSection,
+  ArticlesSection,
+} from "./components";
 
 function App() {
   return (
@@ -6,6 +11,8 @@ function App() {
       <NavBar />
       <main className="full-bleed wrapper">
         <HeroSection />
+        <FeatureSection />
+        <ArticlesSection />
       </main>
     </div>
   );
