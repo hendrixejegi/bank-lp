@@ -55,7 +55,7 @@ export const NavBar = () => {
         <div>
           <img src={logo} alt="Easy Bank logo" />
         </div>
-        <div className="fixed right-8 lg:hidden">
+        <div className="fixed top-10 right-8 -translate-y-1/2 lg:hidden">
           <button
             className="nav-toggle nav-open"
             data-state={isToggled ? "open" : "closed"}
