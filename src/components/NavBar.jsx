@@ -70,7 +70,7 @@ export const NavBar = () => {
             className={clsx(
               "top-[var(--hdr-height)] left-0 h-full w-full p-8 lg:relative lg:inset-auto lg:block lg:bg-transparent lg:p-0",
               isToggled
-                ? "from-dark-blue/70 fixed bg-linear-to-b to-white/0"
+                ? "from-dark-blue fixed bg-linear-to-b to-white/0"
                 : "hidden",
             )}
           >
